@@ -5,6 +5,7 @@ import Experience from '@/components/Experience'
 import Courses from '@/components/Courses'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import FloatingButtons from '@/components/FloatingButtons'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Courses />
       <Contact />
       <Footer />
+      <FloatingButtons />
     </main>
   )
 } 

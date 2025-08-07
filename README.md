@@ -18,6 +18,8 @@ Un sitio web moderno y profesional para un psicólogo especialista en SG-SST (Si
 - **Timeline de experiencia** profesional
 - **Tienda de cursos online** con e-commerce
 - **Blog integrado** (preparado para CMS)
+- **Botones flotantes** para WhatsApp y chat IA
+- **Chat IA integrado** con webhook n8n
 - **SEO optimizado** con metadatos completos
 
 ### 💼 Secciones del Sitio
@@ -40,6 +42,7 @@ Un sitio web moderno y profesional para un psicólogo especialista en SG-SST (Si
 ### Backend & Integraciones
 - **Stripe** - Procesamiento de pagos online
 - **Resend** - Envío de emails transaccionales
+- **n8n** - Automatización y webhooks para chat IA
 - **React Hook Form** - Manejo de formularios
 - **Zod** - Validación de esquemas
 - **React Hot Toast** - Notificaciones
@@ -79,6 +82,9 @@ STRIPE_PUBLISHABLE_KEY=pk_test_...
 
 # Resend (para emails)
 RESEND_API_KEY=re_...
+
+# n8n Webhook (para chat IA)
+N8N_WEBHOOK_URL=https://tu-instancia-n8n.com/webhook/chat
 
 # URLs del sitio
 NEXT_PUBLIC_SITE_URL=https://tu-dominio.com
@@ -151,6 +157,17 @@ colors: {
 - Usar imágenes optimizadas (WebP recomendado)
 - Mantener proporciones consistentes
 
+### Botones Flotantes
+El sitio incluye tres botones flotantes que aparecen al hacer scroll:
+- **WhatsApp**: Abre chat directo con número configurado
+- **Chat IA**: Modal con asistente virtual conectado a n8n
+- **Scroll to Top**: Regresa al inicio de la página
+
+**Configuración:**
+- Editar número de WhatsApp en `components/FloatingButtons.tsx`
+- Configurar webhook de n8n en variables de entorno
+- Personalizar respuestas de fallback en `app/api/chat/route.ts`
+
 ## 🔧 Configuración de Integraciones
 
 ### Stripe (Pagos Online)
@@ -164,6 +181,13 @@ colors: {
 2. Verificar dominio de email
 3. Obtener API key
 4. Configurar templates de email
+
+### n8n (Chat IA)
+1. Configurar instancia de [n8n](https://n8n.io)
+2. Crear workflow para procesar mensajes del chat
+3. Configurar webhook endpoint
+4. Agregar variable de entorno `N8N_WEBHOOK_URL`
+5. El chat incluye respuestas de fallback si n8n no está disponible
 
 ### CMS (Opcional)
 Para gestionar contenido dinámicamente:
